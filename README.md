@@ -30,6 +30,11 @@ Este proyecto es un cliente completamente desacoplado de una BBDD. Lo único que
  - /register_api(ANY) -> Sirve para mandar la información a  la api o volver a renderizar el form en caso de respuesta errónea
 
 ## Preparando el proyecto
+Nada más haber clonado el proyecto deberemos hacer:
+```sh
+composer install
+```
+
 Al ser un proyecto de cliente que sólo consume de una api REST no requiere BBDD real; por lo que ese paso nos lo podemos saltar.
 
 ## Test Unitarios
