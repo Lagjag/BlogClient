@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+  
+{% block title %}Show Post{% endblock %}
+  
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">Show Post</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('post_index') }}"> 
+                    Show all post
+                </a>
+            </div>
+            <div class="card-body">
+                <b class="text-muted">Title:</b>
+                <p>{{ post.title }}</p>
+                <b class="text-muted">Body</b>
+                <p>{{ post.body }}</p>
+                <b class="text-muted">Category:</b>
+                <p>{{ post.category }}</p>
+                <b class="text-muted">Created At:</b>
+                <p>{{ post.createdAt }}</p>
+                <b class="text-muted">Updated At:</b>
+                <p>{{ post.updatedAt }}</p>
+            </div>
+            <section class="bsb-author-1 bg-light py-5 py-xl-8 bsb-hover-special-x">
+            <div class="container overflow-hidden">
+                <div class="row justify-content-center gy-4 gy-md-0">
+                <div class="col-12 col-md-3 col-xl-2 d-flex align-items-center justify-content-center">
+                    <img class="img-fluid w-150px h-150px rounded-circle bsb-hover-special-push-x" loading="lazy" src="./assets/img/author-img-1.jpg" alt="">
+                </div>
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 d-flex align-items-center justify-content-center">
+                    <div class="text-center text-md-start bsb-hover-special-pull-x">
+                    <h5 class="text-secondary fs-7">Article written by</h5>
+                    <h2 class="fs-2 mb-3">{{post.authorName}}</h2>
+                    <p class="mb-3">{{post.authorAddress}}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

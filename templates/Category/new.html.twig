@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+  
+{% block title %}New Category{% endblock %}
+  
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">New Category</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('categories_index') }}"> 
+                    Show all Categories
+                </a>
+            </div>
+            <div class="card-body">
+                {% include 'Category/_form.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

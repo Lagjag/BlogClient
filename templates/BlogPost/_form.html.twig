@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+    {{ form_row(form.id, {'attr': {'class': 'form-control', 'value': (post.id is defined)? post.id: ''}}) }}
+    <div class="form-group">
+        {{ form_row(form.title, {'attr': {'class': 'form-control', 'value': (post.title is defined)? post.title: ''}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.body, {'attr': {'class': 'form-control', 'value': (post.body is defined)? post.body: ''}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.category, {'attr': {'class': 'form-control', 'value': (post.category is defined)? post.category: ''}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.author, {'attr': {'class': 'form-control', 'value': (post.author is defined)? post.author:app.session.get('username')}}) }}
+    </div>
+    <button class="btn {{ button_color|default('btn-outline-primary') }}  mt-3">{{ button_label|default('Save post') }}</button>
+{{ form_end(form) }}

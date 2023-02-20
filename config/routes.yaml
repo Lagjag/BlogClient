@@ -1,0 +1,8 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+post_index:
+    path:       /
+    controller: App\Controller\BlogPostController::index
+    methods:    GET

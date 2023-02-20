@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+  
+{% block title %}Blog post{% endblock %}
+  
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">Blog post at this time</h2>
+        {% if app.request.query.get('new_message') != '' %}
+            <h2 class="text-center mt-5 mb-3">{{app.request.query.get('new_message')}}</h2>
+        {% endif %}
+        <div class="card">
+            <div class="card-header">
+            {% if app.session.get('bearer') is defined and app.session.get('bearer') is not null %}
+                <a class="btn btn-outline-primary" href="{{ path('post_new') }}"> 
+                    New post
+                </a>
+                <a class="btn btn-outline-primary" href="{{ path('categories_index') }}"> 
+                    Categories
+                </a>
+                <a class="btn btn-outline-primary" href="{{ path('logout') }}"> 
+                    Logout
+                </a>
+            {% else %}
+                <a class="btn btn-outline-primary" href="{{ path('app_login') }}"> 
+                    Login
+                </a>
+                <a class="btn btn-outline-primary" href="{{ path('app_register') }}"> 
+                    Register
+                </a>
+            {% endif %}
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Author</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th width="240px">Action</th>
+                    </tr>
+                    {% for post in blogpost %}
+                    <tr>
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.category }}</td>
+                        <td>{{ post.author }}</td>
+                        <td>{{ post.createdAt }}</td>
+                        <td>{{ post.updatedAt }}</td>
+                        <td>
+                            <a
+                                class="btn btn-outline-info"
+                                href="{{ path('post_show', {'id': post.id}) }}">
+                                Show
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+  
+{% endblock %}

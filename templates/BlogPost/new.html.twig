@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+  
+{% block title %}New Post{% endblock %}
+  
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">New Post</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('post_index') }}"> 
+                    Show all post
+                </a>
+            </div>
+            <div class="card-body">
+                {% include 'BlogPost/_form.html.twig' with {'username': app.session.get('username')} %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

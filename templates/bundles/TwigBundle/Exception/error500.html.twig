@@ -1,0 +1,19 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Error 500{% endblock %}
+
+{% block body %}
+    <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="text-center">
+            <h1 class="display-1 fw-bold">500</h1>
+            <p class="fs-3"> <span class="text-danger">Opps!</span> Maybe you are not login in or register.</p>
+            <p class="lead">
+                You must login or register to proceed
+                </p>
+            <a href="{{ path('app_login') }}" class="btn btn-primary">Login</a>
+            <a href="{{ path('app_register') }}" class="btn btn-primary">Register</a>
+            <a href="{{ path('post_index') }}" class="btn btn-primary">Go Home</a>
+        </div>
+    </div>
+{% endblock %}
